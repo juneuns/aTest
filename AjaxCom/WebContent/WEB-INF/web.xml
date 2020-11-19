@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app 
+	version="3.1" 
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+						http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd ">
+	
+	<servlet>
+		<servlet-name>resrc</servlet-name>
+		<servlet-class>com.euns.web.controller.Resrc</servlet-class>
+	</servlet>
+	
+	<!-- *.euns로 들어오는 모든 요청 서블릿 -->
+	<servlet>
+		<servlet-name>euns</servlet-name>
+		<servlet-class>com.euns.web.dispatch.EunsDispatch</servlet-class>
+	</servlet>
+<!-- ======================================================================== -->
+	<!-- 정의된 서블릿 매핑 -->
+	<servlet-mapping>
+		<servlet-name>resrc</servlet-name>
+		<url-pattern>/css/*</url-pattern>
+		<url-pattern>/js/*</url-pattern>
+		<url-pattern>/img/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- .cls로 요청하는 서블릿 매핑 -->
+	<servlet-mapping>
+		<servlet-name>euns</servlet-name>
+		<url-pattern>*.euns</url-pattern>
+	</servlet-mapping>
+</web-app>

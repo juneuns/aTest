@@ -1,0 +1,15 @@
+##### euns 요청 설계 #####
+
+--------------------------------------------------------------------------
+# 회원리스트 요청
+요청내용 : /euns/member/memberList.euns
+파라미터 : none
+컨트롤러 : com.euns.web.controller.member.MemberList
+뷰	  : /WEB-INF/views/com/euns/web/member/memberList.jsp
+--------------------------------------------------------------------------
+# 회원정보 비동기 요청
+요청내용 : /euns/member/memberDetail.euns
+파라미터 : mno
+컨트롤러 : com.euns.web.controller.member.MemberDetail
+뷰	  : json
+--------------------------------------------------------------------------
