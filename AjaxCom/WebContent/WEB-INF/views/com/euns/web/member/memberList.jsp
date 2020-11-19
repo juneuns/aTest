@@ -20,15 +20,17 @@
 </style>
 </head>
 <body>
-	<form id="frm">
-		<input type="hidden" name="mno" id="mno">
-	</form>
 	<div class="w3-content w3-center mw700">
 		<h1 class="w3-pink w3-card-4 w3-padding w3-margin-bottom">Member List</h1>
 		<div class="w3-col w3-margin-top w3-margin-bottom w3-padding w3-border-bottom w3-border-grey">
 <c:forEach var="data" items="${LIST}" varStatus="st">
 			<div class="w3-col m3 pdh10">
+	<c:if test="${COLOR.get(st.index) != 'w3-light-grey'}">
 				<h5 class="w3-col w3-button ${COLOR.get(st.index)} w3-hover-light-green listBtn" id="${data.mno}">${data.name}</h5>
+	</c:if>
+	<c:if test="${COLOR.get(st.index) == 'w3-light-grey'}">
+				<h5 class="w3-col w3-button ${COLOR.get(st.index)} w3-hover-light-green w3-border listBtn" id="${data.mno}">${data.name}</h5>
+	</c:if>
 			</div>
 </c:forEach>			
 		</div>
