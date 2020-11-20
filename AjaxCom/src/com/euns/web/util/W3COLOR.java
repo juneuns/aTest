@@ -9,7 +9,6 @@ public class W3COLOR {
 		list.add("w3-red");
 		list.add("w3-pink");
 		list.add("w3-purple");
-		list.add("w3-purple");
 		list.add("w3-deep-purple");
 		list.add("w3-blue");
 		list.add("w3-cyan");

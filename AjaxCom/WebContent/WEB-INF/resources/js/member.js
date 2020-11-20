@@ -1,7 +1,9 @@
 $(function(){
-	$('.listBtn').click(function(){
-		$('#infobox').stop().slideUp();
+	$('.listBtn').on('click', function(){
 		var sno = $(this).attr('id');
+		$('#mno').val(sno);
+		
+		$('#infobox').stop().slideUp(300);
 		
 		var el = $(document.createElement('form'));
 		$(el).attr('method', 'POST');
@@ -12,7 +14,9 @@ $(function(){
 		$(subEl).val(sno);
 		$(el).append(subEl);
 		
-		var formData = new FormData($(el)[0]);
+		//var formData = new FormData($(el)[0]);
+		
+		formData = new FormData($('#frm')[0]);
 		function clearInfo(){
 			$('#tname').html('');
 			$('#no').html('');
@@ -29,8 +33,8 @@ $(function(){
 			contentType: false,
 			data: formData,
 			success: function(obj){
-				clearInfo();
 				obj = JSON.parse(obj);
+				clearInfo();
 				$('#avt').attr('src', '/euns/img/avatar/' + obj.avatar);
 				$('#tname').html(obj.name);
 				$('#no').html(obj.mno);
@@ -39,6 +43,7 @@ $(function(){
 				$('#mmail').html(obj.mail);
 				$('#gen').html((obj.gen = 'M')? '남자' : '여자');
 				$('#jdate').html(obj.sdate);
+				
 				$('#infobox').stop().slideDown(300);
 			},
 			error: function(){
